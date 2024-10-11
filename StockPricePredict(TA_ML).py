@@ -18,15 +18,6 @@ from keras.layers import GRU, LSTM, Dense, Dropout, AdditiveAttention, Permute, 
 from keras.callbacks import EarlyStopping
 from keras.models import Sequential, load_model
 
-# Add custom CSS to hide the GitHub icon
-hide_github_icon = """
-#GithubIcon {
-  visibility: hidden;
-}
-"""
-st.markdown(hide_github_icon, unsafe_allow_html=True)
-
-
 # Defining a Sidebar
 st.sidebar.title("Stock Price Prediction :")
 st.sidebar.write('Copyright by BB_Chan')
