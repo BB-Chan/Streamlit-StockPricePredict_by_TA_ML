@@ -30,7 +30,7 @@ signal_days = st.sidebar.number_input("Select Trading Signal Days :",1,10,5,1)
 # Defining Checkbox
 st.sidebar.write('Select Technical Indicator(s) :')
 MACD_DMI = st.sidebar.checkbox('Trend : MACD & DMI')
-RSI_KDJ = st.sidebar.checkbox('Momentun : RSI & KDJ')
+RSI_KDJ = st.sidebar.checkbox('Momentum : RSI & KDJ')
 BB_BIAS = st.sidebar.checkbox('Volatility : BB & BIAS')
 # Defining Checkbox
 st.sidebar.write('Select Prediction Model(s) :')
