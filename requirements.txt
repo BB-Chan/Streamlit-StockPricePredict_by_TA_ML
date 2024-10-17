@@ -1,9 +1,9 @@
 streamlit
-plotly==5.18.0
-yfinance==0.2.31
-pandas==2.2.2
-numpy==1.26.4
+plotly
+yfinance
+pandas
+numpy
 tensorflow
-xgboost==1.7.6
-datetime==5.0
-scipy==1.11.1
+xgboost
+datetime
+scipy
