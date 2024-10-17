@@ -7,3 +7,4 @@ tensorflow
 xgboost
 datetime
 scipy
+sklearn
