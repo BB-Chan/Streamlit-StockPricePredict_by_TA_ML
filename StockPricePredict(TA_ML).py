@@ -572,10 +572,10 @@ if New_GRU or Rel_GRU :
         GRU_model.compile(optimizer='adam',loss='mean_squared_error')
         # Fitting to the training set
         GRU_model.fit(X_train,y_train,epochs=50, batch_size=32, verbose=1)
-        # Save the model as a h5 file
+        # Save the model as a keras file
         GRU_model.save(code+"_GRU_model.keras")
     if Rel_GRU:
-        # Reload the model from h5 file
+        # Reload the model from keras file
         GRU_model = load_model(code+"_GRU_model.keras")
 
     # Making predictions
@@ -607,11 +607,11 @@ if New_LSTM or Rel_LSTM :
         LSTM_model.add(Dense(units=1))
         LSTM_model.compile(optimizer='adam',loss='mean_squared_error')
         LSTM_model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1)
-        # Save the model as a h5 file
+        # Save the model as a keras file
         LSTM_model.save(code+"_LSTM_model.keras")
 
     if Rel_LSTM :
-        # reload the model from h5 file
+        # reload the model from keras file
         LSTM_model = load_model(code+"_LSTM_model.keras")
 
     # Making predictions
@@ -663,11 +663,11 @@ if New_LSTM_AM or Rel_LSTM_AM:
         history = LSTM_AM_model.fit(X_train, y_train, epochs=50, batch_size=32, validation_split=0.2, callbacks=[early_stopping],
                         verbose=1)
 
-        # save the model as a h5 file
+        # save the model as a keras file
         LSTM_AM_model.save(code+"_LSTM_AM_model.keras")
 
     if Rel_LSTM_AM :
-        # reload the model from h5 file
+        # reload the model from keras file
         LSTM_AM_model = load_model(code+"_LSTM_AM_model.keras")
 
     # Making predictions
@@ -743,11 +743,11 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
         early_stop = EarlyStopping(monitor='loss', patience=patience)
         history = LSTM_FEAT_model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, callbacks=[early_stop],
                                       shuffle=True, validation_data=(X_test, y_test), verbose=1)
-        # save the model as a h5 file
+        # save the model as a keras file
         LSTM_FEAT_model.save(code+"_LSTM_FEAT_model.keras")
 
     if Rel_LSTM_FEAT :
-        # reload the model from h5 file
+        # reload the model from keras file
         LSTM_FEAT_model = load_model(code+"_LSTM_FEAT_model.keras")
 
     # Get the predicted values
@@ -764,9 +764,9 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
     Calculate_print_metrics(y_test_unscaled, y_pred)
 
 if Last_Close_Price <= predicted_price_XGB and Last_Close_Price <= predicted_price_GRU and Last_Close_Price <= predicted_price_LSTM and Last_Close_Price <= predicted_price_LSTM_AM and Last_Close_Price <= predicted_price_LSTM_FEAT:
-    st.subheader("{ Note : Selected model(s) predict(s) next Close Price(s) would go up, recommend to 'Buy' or 'Hold'. }")
+    st.subheader("{ Selected model(s) predict(s) next Close Price(s) would go up, recommend to 'buy' or 'hold'. }")
 else:
-    st.subheader("{ Note : Selected model(s) predict(s) next Close Price(s) would not go up, recommend to 'sell' or 'not Buy'. }")
+    st.subheader("{ Selected model(s) predict(s) next Close Price(s) would not go up, recommend to 'sell' or 'not buy'. }")
 st.text("")
 
 # ###################################
@@ -775,4 +775,4 @@ st.dataframe(df)
 st.text("")
 st.text("Please note that this program is for informational purposes only and should not be taken as financial advice.")
 st.text("We do not bear responsibility for any trading decisions made based on this program.")
-st.text("Users are advised to conduct their own research or consult with a qualified financial professional before making any investment decisions.")
+st.text("Users are advised to conduct their own research or consult with qualified financial professional before making any investment decisions.")
