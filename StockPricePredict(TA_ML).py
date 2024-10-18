@@ -552,6 +552,7 @@ else:
 
 if New_GRU or Rel_GRU :
     st.subheader('Gated Recurrent Unit Model')
+    from keras.models import Sequential
     GRU_model = Sequential()
 
     if New_GRU:
@@ -592,6 +593,7 @@ if New_GRU or Rel_GRU :
 
 if New_LSTM or Rel_LSTM :
     st.subheader('Long Short Term Memory Model')
+    from keras.models import Sequential
     LSTM_model = Sequential()
 
     if New_LSTM :
@@ -629,6 +631,7 @@ if New_LSTM or Rel_LSTM :
 
 if New_LSTM_AM or Rel_LSTM_AM:
     st.subheader('Long Short Term Memory - Attention Mechanism Model')
+    from keras.models import Sequential
     LSTM_AM_model = Sequential()
 
     if New_LSTM_AM :
@@ -641,7 +644,7 @@ if New_LSTM_AM or Rel_LSTM_AM:
         # Permute and reshape for compatibility
         LSTM_AM_model.add(Permute((2, 1)))
         LSTM_AM_model.add(Reshape((-1, X_train.shape[1])))
-        attention_result = attention([LSTM_AM_model.input, LSTM_AM_model.output])
+        attention_result = attention([LSTM_AM_model.output, LSTM_AM_model.output])
         multiply_layer = Multiply()([LSTM_AM_model.output, attention_result])
         # Return to original shape
         LSTM_AM_model.add(Permute((2, 1)))
@@ -685,6 +688,7 @@ if New_LSTM_AM or Rel_LSTM_AM:
 
 if New_LSTM_FEAT or Rel_LSTM_FEAT:
     st.subheader('Long Short Term Memory - Features (Tech. Indicators) Model')
+    from keras.models import Sequential
     LSTM_FEAT_model = Sequential()
 
     # List of considered Features
