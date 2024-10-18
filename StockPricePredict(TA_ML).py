@@ -773,8 +773,6 @@ st.text("")
 st.subheader('Full Stock Data')
 st.dataframe(df)
 st.text("")
-st.text("Please note that this program is for informational purposes only and"
-        "should not be taken as financial advice. We do not bear responsibility"
-        "for any trading decisions made based on this program."
-        "Users are advised to conduct their own research or consult with qualified"
-        "financial professional before making any investment decisions.")
+st.text("Please note that this program is for informational purposes only and should not be taken as financial advice.")
+st.text("We do not bear responsibility for any trading decisions made based on this program.")
+st.text("Users are advised to conduct their own research or consult with qualified financial professional before making any investment decisions.")
