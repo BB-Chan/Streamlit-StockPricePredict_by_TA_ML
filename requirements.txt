@@ -8,3 +8,4 @@ xgboost
 datetime
 scipy
 scikit-learn
+keras
