@@ -637,12 +637,12 @@ if New_LSTM_AM or Rel_LSTM_AM:
         LSTM_AM_model.add(LSTM(units=50, return_sequences=True))
         # Adding self-attention mechanism
         # The attention mechanism
-        attention = AdditiveAttention(name='attention_weight')
+        #attention = AdditiveAttention(name='attention_weight')
         # Permute and reshape for compatibility
         LSTM_AM_model.add(Permute((2, 1)))
         LSTM_AM_model.add(Reshape((-1, X_train.shape[1])))
-        attention_result = attention([LSTM_AM_model.output, LSTM_AM_model.output])
-        multiply_layer = Multiply()([LSTM_AM_model.output, attention_result])
+        #attention_result = attention([LSTM_AM_model.output, LSTM_AM_model.output])
+        #multiply_layer = Multiply()([LSTM_AM_model.output, attention_result])
         # Return to original shape
         LSTM_AM_model.add(Permute((2, 1)))
         LSTM_AM_model.add(Reshape((-1, 50)))
