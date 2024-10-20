@@ -762,13 +762,7 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
     st.write("Predicts next Close Price of " + df['Date'][len(df) - 1] + " is :", str(predicted_price_LSTM_FEAT[0]))
 
     Calculate_print_metrics(y_test_unscaled, y_pred)
-
-if Last_Close_Price <= predicted_price_XGB and Last_Close_Price <= predicted_price_GRU and Last_Close_Price <= predicted_price_LSTM and Last_Close_Price <= predicted_price_LSTM_AM and Last_Close_Price <= predicted_price_LSTM_FEAT:
-    st.subheader("{ Selected model(s) predict(s) next Close Price(s) would go up, recommend to 'buy' or 'hold'. }")
-else:
-    st.subheader("{ Selected model(s) predict(s) next Close Price(s) would not go up, recommend to 'sell' or 'not buy'. }")
 st.text("")
-
 # ###################################
 st.subheader('Full Stock Data')
 st.dataframe(df)
