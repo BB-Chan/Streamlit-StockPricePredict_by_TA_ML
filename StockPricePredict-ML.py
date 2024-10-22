@@ -48,9 +48,9 @@ button = st.sidebar.button('Submit')
 if not button:
     st.stop()
 
-df = yf.download(code, start, end)
-#stock.to_csv(code + '.csv')
-#df = pd.read_csv(code + '.csv')
+stock = yf.download(code, start, end)
+stock.to_csv(code + '.csv')
+df = pd.read_csv(code + '.csv')
 df['Close'] = round(df['Close'],2)
 st.header(code)
 st.subheader('Stock Data')
