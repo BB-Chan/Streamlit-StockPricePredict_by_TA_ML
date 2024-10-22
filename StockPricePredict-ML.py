@@ -39,8 +39,8 @@ New_GRU = st.sidebar.checkbox('Create new GRU')
 Rel_GRU = st.sidebar.checkbox('Load saved GRU')
 New_LSTM = st.sidebar.checkbox('Create new LSTM')
 Rel_LSTM = st.sidebar.checkbox('Load saved LSTM')
-New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention Mechanism')
-Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention Mechanism')
+New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention')
+Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention')
 New_LSTM_FEAT = st.sidebar.checkbox('Create new LSTM - Features')
 Rel_LSTM_FEAT = st.sidebar.checkbox('Load saved LSTM - Features')
 # Defining a Button
@@ -628,7 +628,7 @@ if New_LSTM or Rel_LSTM :
 
 
 if New_LSTM_AM or Rel_LSTM_AM:
-    st.subheader('Long Short Term Memory - Attention Mechanism Model')
+    st.subheader('Long Short Term Memory - Attention Model')
     LSTM_AM_model = Sequential()
 
     if New_LSTM_AM :
