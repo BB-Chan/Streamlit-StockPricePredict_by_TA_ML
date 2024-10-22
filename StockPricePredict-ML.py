@@ -5,7 +5,6 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 import tensorflow as tf
-#tf.keras.utils.set_random_seed(1)
 import xgboost as xgb
 import datetime
 import warnings
