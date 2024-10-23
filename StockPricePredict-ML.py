@@ -56,7 +56,7 @@ st.header(code)
 st.subheader('Stock Data')
 #st.dataframe(df)
 df = pd.dataframe(stock)
-st.dataframe(df)
+st.dataframe(stock)
 
 # Calculate Moving Averages
 df['SMA10'] = df['Close'].rolling(window=10).mean()
