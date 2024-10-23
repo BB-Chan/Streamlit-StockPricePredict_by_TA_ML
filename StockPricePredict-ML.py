@@ -48,7 +48,7 @@ button = st.sidebar.button('Submit')
 if not button:
     st.stop()
 
-stock = yf.download(code, start, end)
+stock = yf.Ticker(code, start, end,interval="1d")
 stock.to_csv(code + '.csv')
 df = pd.read_csv(code + '.csv')
 df['Close'] = round(df['Close'],2)
