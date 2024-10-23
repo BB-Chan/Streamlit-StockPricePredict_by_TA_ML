@@ -55,7 +55,6 @@ stock = yf.Ticker(code, start, end)
 st.header(code)
 st.subheader('Stock Data')
 #st.dataframe(df)
-df = pd.dataframe(stock)
 st.dataframe(stock)
 
 # Calculate Moving Averages
