@@ -49,13 +49,12 @@ if not button:
     st.stop()
 
 stock = yf.Ticker(code, start, end)
-#stock.to_csv(code + '.csv')
-#df = pd.read_csv(code + '.csv')
-#df['Close'] = round(df['Close'],2)
+stock.to_csv(code + '.csv')
+df = pd.read_csv(code + '.csv')
+df['Close'] = round(df['Close'],2)
 st.header(code)
 st.subheader('Stock Data')
-#st.dataframe(df)
-st.dataframe(stock)
+st.dataframe(df)
 
 # Calculate Moving Averages
 df['SMA10'] = df['Close'].rolling(window=10).mean()
