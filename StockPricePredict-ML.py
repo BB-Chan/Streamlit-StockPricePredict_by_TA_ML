@@ -55,7 +55,8 @@ stock = yf.Ticker(code, start, end)
 st.header(code)
 st.subheader('Stock Data')
 #st.dataframe(df)
-st.dataframe(stock)
+df = pd.dataframe(stock)
+st.dataframe(df)
 
 # Calculate Moving Averages
 df['SMA10'] = df['Close'].rolling(window=10).mean()
