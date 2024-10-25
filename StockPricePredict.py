@@ -49,7 +49,7 @@ if not button:
     st.stop()
 
 df = yf.download(code, start, end)
-#st.write(stock)
+st.write(df)
 #stock.to_csv(code + '.csv')
 #df = pd.read_csv(code + '.csv')
 df['Close'] = round(df['Close'],2)
@@ -104,6 +104,8 @@ def get_adx(high, low, close, lookback):
 df['Plus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[0]).rename(columns={0: 'Plus_di'})
 df['Minus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[1]).rename(columns={0: 'Minus_di'})
 df['ADX'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[2]).rename(columns={0: 'ADX'})
+
+st.write(df)
 
 # Calculate KDJ
 def calKDJ(df2):
