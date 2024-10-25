@@ -104,8 +104,6 @@ df['Plus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[0])
 df['Minus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[1]).rename(columns={0: 'Minus_di'})
 df['ADX'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[2]).rename(columns={0: 'ADX'})
 
-st.write(df)
-
 # Calculate KDJ
 def calKDJ(df2):
     df2['MinLow'] = df2['Low'].rolling(9, min_periods=9).min()
