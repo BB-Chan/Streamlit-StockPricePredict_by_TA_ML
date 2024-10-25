@@ -49,10 +49,8 @@ if not button:
     st.stop()
 
 stock = yf.download(code, start, end)
-st.write(stock)
 stock.to_csv(code + '.csv')
 df = pd.read_csv(code + '.csv')
-st.write(df)
 df['Close'] = round(df['Close'],2)
 st.header(code)
 st.subheader('Stock Data')
@@ -765,10 +763,6 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
 
     Calculate_print_metrics(y_test_unscaled, y_pred)
 
-if Last_Close_Price <= predicted_price_XGB and Last_Close_Price <= predicted_price_GRU and Last_Close_Price <= predicted_price_LSTM and Last_Close_Price <= predicted_price_LSTM_AM and Last_Close_Price <= predicted_price_LSTM_FEAT:
-    st.subheader("{ Note : Selected model(s) predict(s) next Close Price(s) would go up, recommend to 'Buy'. }")
-else:
-    st.subheader("{ Note : Selected model(s) predict(s) next Close Price(s) would not go up, recommend to 'sell or 'not Buy'. }")
 st.text("")
 
 # ###################################
