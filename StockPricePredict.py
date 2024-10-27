@@ -51,7 +51,7 @@ if not button:
 stock = yf.download(code, start, end)
 stock.to_csv(code + '.csv')
 df = pd.read_csv(code + '.csv')
-#df['Date'] = pd.to_datetime(df['Date']).dt.date
+df['Date'] = pd.to_datetime(df['Date']).dt.date
 st.header(code)
 st.subheader('Stock Data')
 st.dataframe(df)
