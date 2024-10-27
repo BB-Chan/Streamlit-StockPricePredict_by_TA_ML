@@ -51,7 +51,6 @@ if not button:
 stock = yf.download(code, start, end)
 stock.to_csv(code + '.csv')
 df = pd.read_csv(code + '.csv')
-df.dropna(thresh=0)
 st.header(code)
 st.subheader('Stock Data')
 st.dataframe(df)
