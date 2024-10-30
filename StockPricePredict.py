@@ -14,9 +14,9 @@ from scipy.signal import argrelextrema
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_percentage_error,mean_squared_error,mean_absolute_error
 from sklearn.preprocessing import MinMaxScaler,RobustScaler
-from keras.layers import GRU, LSTM, Dense, Dropout, AdditiveAttention, Permute, Reshape, Multiply, BatchNormalization
-from keras.callbacks import EarlyStopping
-from keras.models import Sequential, load_model
+from tensorflow.keras.layers import GRU, LSTM, Dense, Dropout, AdditiveAttention, Permute, Reshape, Multiply, BatchNormalization
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.models import Sequential, Model, load_model
 
 # Defining a Sidebar
 st.sidebar.title("Stock Price Prediction :")
@@ -39,8 +39,8 @@ New_GRU = st.sidebar.checkbox('Create new GRU')
 Rel_GRU = st.sidebar.checkbox('Load saved GRU')
 New_LSTM = st.sidebar.checkbox('Create new LSTM')
 Rel_LSTM = st.sidebar.checkbox('Load saved LSTM')
-New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention')
-Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention')
+New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention Mechanism')
+Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention Mechanism')
 New_LSTM_FEAT = st.sidebar.checkbox('Create new LSTM - Features')
 Rel_LSTM_FEAT = st.sidebar.checkbox('Load saved LSTM - Features')
 # Defining a Button
@@ -51,6 +51,7 @@ if not button:
 stock = yf.download(code, start, end)
 stock.to_csv(code + '.csv')
 df = pd.read_csv(code + '.csv')
+df['Close'] = round(df['Close'],2)
 st.header(code)
 st.subheader('Stock Data')
 st.dataframe(df)
@@ -572,7 +573,7 @@ if New_GRU or Rel_GRU :
         # Fitting to the training set
         GRU_model.fit(X_train,y_train,epochs=50, batch_size=32, verbose=1)
         # Save the model as a keras file
-        GRU_model.save(code+"_GRU_model.keras")
+        GRU_model.save(code+"_GRU_model.keras", save_format='keras')
     if Rel_GRU:
         # Reload the model from keras file
         GRU_model = load_model(code+"_GRU_model.keras")
@@ -627,7 +628,7 @@ if New_LSTM or Rel_LSTM :
 
 
 if New_LSTM_AM or Rel_LSTM_AM:
-    st.subheader('Long Short Term Memory - Attention Model')
+    st.subheader('Long Short Term Memory - Attention Mechanism Model')
     LSTM_AM_model = Sequential()
 
     if New_LSTM_AM :
@@ -760,8 +761,7 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
 
     Calculate_print_metrics(y_test_unscaled, y_pred)
 
-st.text("")
-
 # ###################################
+st.text("")
 st.subheader('Full Stock Data')
 st.dataframe(df)
