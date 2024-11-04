@@ -50,15 +50,14 @@ if not button:
 
 stock = yf.download(code, start, end)
 stock.to_csv(code + '.csv')
-df0 = pd.read_csv(code + '.csv')
+df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
-st.dataframe(df0)
+st.dataframe(df_0)
 
-df1=df0.drop([0,1])
-df2=df1.rename(columns={"Price": "Date"})
-df=df2
-df['Close'] = round(df['Close'],2)
+df_1=df_0.drop([0,1])
+df_2=df_1.rename(columns={"Price": "Date"})
+df=df_2
 
 st.dataframe(df)
 
