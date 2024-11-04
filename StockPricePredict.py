@@ -55,10 +55,9 @@ st.header(code)
 st.subheader('Stock Data')
 st.dataframe(df0)
 
-df1=df0.drop(columns=['Unnamed:0'])
-df2=df1.drop([0,1])
-df3=df2.rename(columns={"Price": "Date"})
-df=df3
+df1=df0.drop([0,1])
+df2=df1.rename(columns={"Price": "Date"})
+df=df2
 df['Close'] = round(df['Close'],2)
 
 st.dataframe(df)
