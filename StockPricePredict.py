@@ -88,6 +88,8 @@ df['DIF'] = df['EMA1'] - df['EMA2']
 df['DEA'] = df['DIF'].ewm(span=9, adjust=False, min_periods=9).mean()
 df['MACD'] = 2 * (df['DIF'] - df['DEA'])
 
+st.dataframe(df)
+
 # Calculate Directional Movement Index
 def get_adx(high, low, close, lookback):
     plus_dm = high.diff()
