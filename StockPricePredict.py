@@ -57,6 +57,7 @@ st.dataframe(df_0)
 
 df_1=df_0.drop([0,1])
 df=df_1.rename(columns={"Price": "Date"})
+df.reset_index(drop=True)
 
 st.dataframe(df)
 
