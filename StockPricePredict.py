@@ -57,8 +57,8 @@ st.dataframe(df_0)
 
 df_1=df_0.drop([0,1])
 df=df_1.rename(columns={"Price": "Date"})
-df['High']=df['High'].apply(float)
-df['Low']=df['Low'].apply(float)
+#df['High']=df['High'].apply(float)
+#df['Low']=df['Low'].apply(float)
 
 st.dataframe(df)
 
