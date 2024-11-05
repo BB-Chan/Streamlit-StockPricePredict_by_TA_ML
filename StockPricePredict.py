@@ -53,8 +53,8 @@ stock.to_csv(code + '.csv')
 df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
-#st.dataframe(df_0)
 
+#Specially for abnormal yfinance data download
 df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
 df=df_2.reset_index(drop=True)
@@ -86,8 +86,6 @@ df['EMA2'] = df['Close'].ewm(span=26, adjust=False, min_periods=26).mean()
 df['DIF'] = df['EMA1'] - df['EMA2']
 df['DEA'] = df['DIF'].ewm(span=9, adjust=False, min_periods=9).mean()
 df['MACD'] = 2 * (df['DIF'] - df['DEA'])
-
-st.dataframe(df)
 
 # Calculate Directional Movement Index
 def get_adx(high, low, close, lookback):
