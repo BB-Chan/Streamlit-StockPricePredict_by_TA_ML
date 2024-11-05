@@ -53,7 +53,7 @@ stock.to_csv(code + '.csv')
 df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
-st.dataframe(df_0)
+#st.dataframe(df_0)
 
 df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
