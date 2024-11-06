@@ -105,9 +105,9 @@ def get_adx(high, low, close, lookback):
     adx = ((dx.shift(1) * (lookback - 1)) + dx) / lookback
     adx_smooth = adx.ewm(alpha=1 / lookback).mean()
     return plus_di, minus_di, adx_smooth
-df['Plus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[0]).rename(columns={0: 'Plus_di'})
-df['Minus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[1]).rename(columns={0: 'Minus_di'})
-df['ADX'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[2]).rename(columns={0: 'ADX'})
+df['Plus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[0])  #.rename(columns={0: 'Plus_di'})
+df['Minus_di'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[1]) #.rename(columns={0: 'Minus_di'})
+df['ADX'] = pd.DataFrame(get_adx(df['High'], df['Low'], df['Close'], 14)[2])      #.rename(columns={0: 'ADX'})
 
 # Calculate KDJ
 def calKDJ(df2):
