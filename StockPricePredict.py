@@ -89,6 +89,9 @@ df['MACD'] = 2 * (df['DIF'] - df['DEA'])
 st.dataframe(df)
 
 # Calculate Directional Movement Index
+df['Close'] = df['Close'].astype(float)
+df['High'] = df['High'].astype(float)
+df['Low'] = df['Low'].astype(float)
 def get_adx(df1):
     plus_dm = df1['High'].diff()
     minus_dm = df1['Low'].diff()
