@@ -58,7 +58,11 @@ st.subheader('Stock Data')
 df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
 df=df_2.reset_index(drop=True)
-
+df['Close'] = df['Close'].astype(float)
+df['High'] = df['High'].astype(float)
+df['Low'] = df['Low'].astype(float)
+df['Open'] = df['Open'].astype(float)
+df['Volume'] = df['Volume'].astype(float)
 st.dataframe(df)
 
 # Calculate Moving Averages
@@ -89,9 +93,6 @@ df['MACD'] = 2 * (df['DIF'] - df['DEA'])
 st.dataframe(df)
 
 # Calculate Directional Movement Index
-df['Close'] = df['Close'].astype(float)
-df['High'] = df['High'].astype(float)
-df['Low'] = df['Low'].astype(float)
 def get_adx(df1):
     plus_dm = df1['High'].diff()
     minus_dm = df1['Low'].diff()
