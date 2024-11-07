@@ -43,8 +43,8 @@ New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention')
 Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention')
 New_LSTM_FEAT = st.sidebar.checkbox('Create new LSTM - Features')
 Rel_LSTM_FEAT = st.sidebar.checkbox('Load saved LSTM - Features')
-st.sidebar.write('Select Streamlit Cloud or Local_PC to run this program,')
-Local_PC = st.sidebar.checkbox('Tick if use Local_PC')
+st.sidebar.write('Pre-select Streamlit Cloud to run this program,')
+Local_PC = st.sidebar.checkbox('Tick if use Local_PC instead.')
 # Defining a Button
 button = st.sidebar.button('Submit')
 if not button:
