@@ -54,7 +54,7 @@ df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
 
-#Specially for abnormal data format (yfinance & functions)
+# Special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computing
 df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
 df=df_2.reset_index(drop=True)
@@ -64,6 +64,7 @@ df['High'] = df['High'].astype(float)
 df['Low'] = df['Low'].astype(float)
 df['Open'] = df['Open'].astype(float)
 df['Volume'] = df['Volume'].astype(float)
+# Special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computing
 
 st.dataframe(df)
 
@@ -92,7 +93,6 @@ df['EMA2'] = df['Close'].ewm(span=26, adjust=False, min_periods=26).mean()
 df['DIF'] = df['EMA1'] - df['EMA2']
 df['DEA'] = df['DIF'].ewm(span=9, adjust=False, min_periods=9).mean()
 df['MACD'] = 2 * (df['DIF'] - df['DEA'])
-st.dataframe(df)
 
 # Calculate Directional Movement Index
 def get_adx(df1):
@@ -112,9 +112,7 @@ def get_adx(df1):
     adx = ((dx.shift(1) * (14 - 1)) + dx) / 14
     df1['ADX'] = adx.ewm(alpha=1 / 14).mean()
     return df1
-
 df = get_adx(df)
-st.dataframe(df)
 
 # Calculate KDJ
 def calKDJ(df2):
