@@ -106,7 +106,7 @@ def get_adx(df1):
     df1['Plus_di'] = 100 * (plus_dm.ewm(alpha=1 / 14).mean() / atr)
     df1['Minus_di'] = abs(100 * (minus_dm.ewm(alpha=1 / 14).mean() / atr))
     dx = (abs(df1['Plus_di'] - df1['Minus_di']) / abs(df1['Plus_di'] + df1['Minus_di'])) * 100
-    adx = ((dx.shift(1) * (14 - 1)) + dx) / lookback
+    adx = ((dx.shift(1) * (14 - 1)) + dx) / 14
     df1['ADX'] = adx.ewm(alpha=1 / 14).mean()
     return df1
 
