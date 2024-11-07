@@ -67,7 +67,6 @@ if not Local_PC :
     df['Low'] = df['Low'].astype(float)
     df['Open'] = df['Open'].astype(float)
     df['Volume'] = df['Volume'].astype(float)
-    df['Date'] = pd.to_datetime(df['Date']).dt.date
 
 st.dataframe(df)
 
