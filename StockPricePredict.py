@@ -64,7 +64,7 @@ df['High'] = df['High'].astype(float)
 df['Low'] = df['Low'].astype(float)
 df['Open'] = df['Open'].astype(float)
 df['Volume'] = df['Volume'].astype(float)
-df['Date'] = pd.to_datetime(df['Date']
+df['Date'] = pd.to_datetime(df['Date'])
 
 st.dataframe(df)
 
