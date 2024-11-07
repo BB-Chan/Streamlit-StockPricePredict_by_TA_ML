@@ -86,6 +86,7 @@ df['EMA2'] = df['Close'].ewm(span=26, adjust=False, min_periods=26).mean()
 df['DIF'] = df['EMA1'] - df['EMA2']
 df['DEA'] = df['DIF'].ewm(span=9, adjust=False, min_periods=9).mean()
 df['MACD'] = 2 * (df['DIF'] - df['DEA'])
+st.dataframe(df)
 
 # Calculate Directional Movement Index
 def get_adx(df1, lookback):
@@ -105,7 +106,8 @@ def get_adx(df1, lookback):
     adx = ((dx.shift(1) * (lookback - 1)) + dx) / lookback
     df1['ADX'] = adx.ewm(alpha=1 / lookback).mean()
     return df1
-df = get_adx(df, 14)
+lookback = 14
+df = get_adx(df, lookback)
 st.dataframe(df)
 
 # Calculate KDJ
