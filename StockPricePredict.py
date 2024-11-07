@@ -43,6 +43,7 @@ New_LSTM_AM = st.sidebar.checkbox('Create new LSTM - Attention')
 Rel_LSTM_AM = st.sidebar.checkbox('Load saved LSTM - Attention')
 New_LSTM_FEAT = st.sidebar.checkbox('Create new LSTM - Features')
 Rel_LSTM_FEAT = st.sidebar.checkbox('Load saved LSTM - Features')
+Local_PC = st.sidebar.checkbox('Use Local PC to run this program')
 # Defining a Button
 button = st.sidebar.button('Submit')
 if not button:
@@ -54,7 +55,9 @@ df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
 
-# Special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computing
+if Local_PC :
+    # Skip special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computingbelow 
+else:
 df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
 df=df_2.reset_index(drop=True)
@@ -64,7 +67,6 @@ df['High'] = df['High'].astype(float)
 df['Low'] = df['Low'].astype(float)
 df['Open'] = df['Open'].astype(float)
 df['Volume'] = df['Volume'].astype(float)
-# Special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computing
 
 st.dataframe(df)
 
