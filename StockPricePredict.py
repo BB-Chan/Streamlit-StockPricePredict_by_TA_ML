@@ -59,11 +59,13 @@ df_1=df_0.drop([0,1])
 df_2=df_1.rename(columns={"Price": "Date"})
 df=df_2.reset_index(drop=True)
 df['Close'] = df['Close'].astype(float)
-df['AdjClose'] = df['AdjClose'].astype(float)
+df['Adj Close'] = df['Adj Close'].astype(float)
 df['High'] = df['High'].astype(float)
 df['Low'] = df['Low'].astype(float)
 df['Open'] = df['Open'].astype(float)
 df['Volume'] = df['Volume'].astype(float)
+df['Date'] = pd.to_datetime(df['Date']
+
 st.dataframe(df)
 
 # Calculate Moving Averages
