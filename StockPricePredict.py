@@ -69,6 +69,7 @@ if not Local_PC :
     df['Volume'] = df['Volume'].astype(float)
 
 st.dataframe(df)
+start_time = datetime.datetime.now()
 
 # Calculate Moving Averages
 df['SMA10'] = df['Close'].rolling(window=10).mean()
@@ -777,6 +778,8 @@ if New_LSTM_FEAT or Rel_LSTM_FEAT:
 st.text("")
 st.subheader('Full Stock Data')
 st.dataframe(df)
+finish_time = datetime.datetime.now()
+st.text ("Start Time :",start_time,"        ","Finish Time :",finish_time)
 st.text("")
 st.text("Please note that this program is for informational purposes only and should not be taken as financial advice.")
 st.text("We do not bear responsibility for any trading decisions made based on this program.")
