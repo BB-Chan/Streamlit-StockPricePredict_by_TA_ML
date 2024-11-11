@@ -55,6 +55,7 @@ stock.to_csv(code + '.csv')
 df_0 = pd.read_csv(code + '.csv')
 st.header(code)
 st.subheader('Stock Data')
+df = df_0
 
 if not Local_PC :
     # Special process for abnormal data format (yfinance & functions) from Streamlit Cloud Computing :
