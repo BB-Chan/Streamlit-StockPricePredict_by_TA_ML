@@ -446,7 +446,7 @@ X_test = np.reshape(X_test, (X_test.shape[0],X_test.shape[1],1))
 # ### Evaluate & print metrics
 def Calculate_print_metrics(test,predict):
     mape = mean_absolute_percentage_error(test, predict)
-    rmse = mean_squared_error(test, predict, squared=False)
+    rmse = mean_squared_error(test, predict)
     mae = mean_absolute_error(test, predict)
     # Print the evaluation metrics and directional accuracy
     st.write('MAPE                   :', str(round(mape,6)))
