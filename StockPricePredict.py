@@ -63,7 +63,7 @@ if not Local_PC :
     df_2=df_1.rename(columns={"Price": "Date"})
     df=df_2.reset_index(drop=True)
     df['Close'] = df['Close'].astype(float)
-    df['Adj Close'] = df['Adj Close'].astype(float)
+    #df['Adj Close'] = df['Adj Close'].astype(float)
     df['High'] = df['High'].astype(float)
     df['Low'] = df['Low'].astype(float)
     df['Open'] = df['Open'].astype(float)
