@@ -22,8 +22,8 @@ from tensorflow.keras.models import Sequential, Model, load_model
 st.sidebar.title("Stock Price Prediction :")
 st.sidebar.write('Copyright by BB_Chan')
 code = st.sidebar.text_input("Enter Stock Ticker (e.g. AAPL,0005.hk,...) :")
-start = st.sidebar.date_input("Select Start Date",value=datetime.date(2019,1,1),
-                      min_value=datetime.date(2000,1,1),
+start = st.sidebar.date_input("Select Start Date",value=datetime.date(2024,1,1),
+                      min_value=datetime.date(1990,1,1),
                       max_value=datetime.date(2024,7,1))
 end = st.sidebar.date_input("Select End Date",value=datetime.date(2025,12,31))
 signal_days = st.sidebar.number_input("Select Trading Signal Days :",1,10,5,1)
