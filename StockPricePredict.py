@@ -446,7 +446,7 @@ Last_Close_Price = df.iloc[(len(df)-1)]['Close']
 # Plot Charts
 # EMA Chart
 st.subheader('Close Prices w/ Exponential Moving Average (Trend)')
-lines_chart1 = px.line(df, x="Date", y=["Close", "EMA10", "EMA50", "EMA100"],
+lines_chart1 = px.line(df, x="Date", y=["Close", "EMA10", "EMA50", "EMA100"], labels={"variable":"Prices"},
                            color_discrete_map={'Close': 'goldenrod','EMA10': 'blue','EMA50': 'green',
                                                'EMA100': 'purple'})
 st.plotly_chart(lines_chart1)
