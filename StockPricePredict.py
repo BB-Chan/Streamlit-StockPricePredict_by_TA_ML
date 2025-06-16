@@ -503,7 +503,7 @@ if RSI_KDJ :
 if BB_BIAS :
 # BB Chart
     st.subheader('Bollinger Bands (Volatility)')
-    lines_chart2 = px.line(df, x='Date', y=['Close', 'UpperBand', 'MiddleBand', 'LowerBand'],labels={"variable":"Prices"},
+    lines_chart2 = px.line(df, x='Date', y=['Close', 'UpperBand', 'MiddleBand', 'LowerBand'],labels={"value":"Prices","variable":"Prices"},
                            color_discrete_map={'Close': 'goldenrod', 'UpperBand': 'blue', 'MiddleBand': 'green',
                                                'LowerBand': 'purple'})
     st.plotly_chart(lines_chart2)
