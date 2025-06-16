@@ -474,13 +474,13 @@ st.plotly_chart(bar_graph0)
 # Display Technical Indicators
 if MACD_DMI :
 # MACD Chart
-    bar_graph1 = px.bar(df, x=df['Date'],y=df['MACD'])
+    bar_graph1 = px.bar(df, x=df['Date'],y=df['MACD'],labels={"variable":"Indicators"})
     st.subheader('Moving Average Convergence Divergence (Trend)')
     st.plotly_chart(bar_graph1)
     st.write('MACD Buy Signal  : ', MACDbuyDate)
     st.write('MACD Sell Signal : ', MACDsellDate)
 # DMI Chart
-    lines_chart4 = px.line(df, x=df['Date'],y=[df['Plus_di'],df['Minus_di'],df['ADX']])
+    lines_chart4 = px.line(df, x=df['Date'],y=[df['Plus_di'],df['Minus_di'],df['ADX']],labels={"variable":"Indicators"})
     st.subheader('Directional Movement Index (Trend)')
     st.plotly_chart(lines_chart4)
     st.write('DMI  Buy Signal  : ', DMIbuyDate)
@@ -488,13 +488,13 @@ if MACD_DMI :
 
 if RSI_KDJ :
 # RSI Chart
-    lines_chart6 = px.line(df, x=df['Date'],y=[df['RSI6'],df['RSI12'],df['RSI24']])
+    lines_chart6 = px.line(df, x=df['Date'],y=[df['RSI6'],df['RSI12'],df['RSI24']],labels={"variable":"Indicators"})
     st.subheader('Relative Strength Index (Momentum)')
     st.plotly_chart(lines_chart6)
     st.write('RSI  Buy Signal  : ', RSIbuyDate)
     st.write('RSI  Sell Signal : ', RSIsellDate)
 # KDJ Chart
-    lines_chart5 = px.line(df, x=df['Date'],y=[df['K'],df['D']])
+    lines_chart5 = px.line(df, x=df['Date'],y=[df['K'],df['D']],labels={"variable":"Indicators"})
     st.subheader('KDJ (Momentum)')
     st.plotly_chart(lines_chart5)
     st.write('KDJ  Buy Signal  : ', KDJbuyDate)
@@ -503,14 +503,14 @@ if RSI_KDJ :
 if BB_BIAS :
 # BB Chart
     st.subheader('Bollinger Bands (Volatility)')
-    lines_chart2 = px.line(df, x='Date', y=['Close', 'UpperBand', 'MiddleBand', 'LowerBand'],
+    lines_chart2 = px.line(df, x='Date', y=['Close', 'UpperBand', 'MiddleBand', 'LowerBand'],labels={"variable":"Prices"}
                            color_discrete_map={'Close': 'goldenrod', 'UpperBand': 'blue', 'MiddleBand': 'green',
                                                'LowerBand': 'purple'})
     st.plotly_chart(lines_chart2)
     st.write('BB   Buy Signal    : ', BBbuyDate)
     st.write('BB   Sell Signal   : ', BBsellDate)
 # BIAS Chart
-    lines_chart7 = px.line(df, x=df['Date'],y=[df['BIAS6'],df['BIAS12'],df['BIAS24']])
+    lines_chart7 = px.line(df, x=df['Date'],y=[df['BIAS6'],df['BIAS12'],df['BIAS24']],labels={"variable":"Indicators"})
     st.subheader('BIAS (Volatility)')
     st.plotly_chart(lines_chart7)
     st.write('BIAS Buy Signal  : ', BIASbuyDate)
