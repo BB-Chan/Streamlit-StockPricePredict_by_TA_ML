@@ -467,7 +467,7 @@ candlestick_fig = go.Figure(data=candlestick, layout=candlestick_layout)
 st.plotly_chart(candlestick_fig)
 
 # Volume Chart
-bar_graph0 = px.bar(df, x=df['Date'],y=df['Volume']/1000000)
+bar_graph0 = px.bar(df, x=df['Date'],y=df['Volume']/1000000,labels={"value":"Volume, Million Shares")
 st.subheader('Volume')
 st.plotly_chart(bar_graph0)
 
