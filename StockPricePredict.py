@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 tf.keras.utils.set_random_seed(1)
+tf.get_logger().setLevel('ERROR')
 import xgboost as xgb
 import datetime
 import warnings
