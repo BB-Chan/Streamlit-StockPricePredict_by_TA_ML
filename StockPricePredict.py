@@ -532,7 +532,7 @@ if XGBoost :
     # Split the data into training and test sets
     X_train_XGB, X_test_XGB, y_train_XGB, y_test_XGB = train_test_split(X, y, test_size=0.2, random_state=42)
     # Train an XGBoost model
-    XGB_model = xgb.XGBRegressor(objective='reg:squarederror', random_state=42, booster='gbtree')
+    XGB_model = xgb.XGBRegressor(objective='reg:squarederror', random_state=42, booster='gbtree', colsample_bytree = 0.3,learning_rate = 0.1, max_depth = 5, alpha = 10, n_estimators = 100)
     XGB_model.fit(X_train_XGB, y_train_XGB)
 
     # Predict on the test set
