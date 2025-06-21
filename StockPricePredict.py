@@ -574,7 +574,7 @@ if New_GRU or Rel_GRU :
         # Fitting to the training set
         GRU_model.fit(X_train,y_train,epochs=50, batch_size=32, verbose=1)
         # Save the model as a keras file
-        GRU_model.save(code+"_GRU_model.keras", save_format='keras')
+        GRU_model.save(code+"_GRU_model.keras")
     if Rel_GRU:
         # Reload the model from keras file
         GRU_model = load_model(code+"_GRU_model.keras")
