@@ -518,7 +518,7 @@ if BB_BIAS :
     st.write('BIAS Sell Signal : ', BIASsellDate)
 
 # Resistance & Support Levels
-st.subheader('Resisitance & Support Levels')
+st.subheader('Resistance & Support Levels')
 st.write('Resistance Levels : ', ResistDate)
 st.write('Support Levels : ', SupportDate)
 
@@ -531,9 +531,10 @@ if XGBoost :
     y = df['Close']
     X = df[['Open','High','Low','Volume','EMA10','EMA50','UpperBand','MiddleBand','LowerBand','MACD','ADX','K','D','BIAS6','BIAS12','BIAS24','RSI6','RSI12','RSI24']]
     # Split the data into training and test sets
-    X_train_XGB, X_test_XGB, y_train_XGB, y_test_XGB = train_test_split(X, y, test_size=0.2, random_state=42)
+    X_train_XGB, X_test_XGB, y_train_XGB, y_test_XGB = train_test_split(X, y, test_size=0.2)
     # Train an XGBoost model
-    XGB_model = xgb.XGBRegressor(objective='reg:squarederror', random_state=42, booster='gbtree', colsample_bytree = 0.3,learning_rate = 0.1, max_depth = 5, alpha = 10, n_estimators = 100)
+    XGB_model = xgb.XGBRegressor(objective='reg:squarederror', random_state=42, booster='gbtree', colsample_bytree = 0.3,
+                                 learning_rate = 0.1, max_depth = 5, alpha = 10, n_estimators = 100)
     XGB_model.fit(X_train_XGB, y_train_XGB)
 
     # Predict on the test set
