@@ -26,7 +26,7 @@ code = st.sidebar.text_input("Enter Stock Ticker (e.g. AAPL,0005.hk,...) :")
 start = st.sidebar.date_input("Select Start Date",value=datetime.date(2024,1,1),
                       min_value=datetime.date(1990,1,1),
                       max_value=datetime.date(2025,1,31))
-end = st.sidebar.date_input("Select End Date",value=datetime.date(2025,12,31))
+end = st.sidebar.date_input("Select End Date",value=datetime.date(2026,12,31))
 signal_days = st.sidebar.number_input("Select Trading Signal Days :",1,10,5,1)
 # Defining Checkbox
 st.sidebar.write('Select Technical Indicator(s) :')
@@ -774,3 +774,4 @@ st.text("")
 st.text("Please note that this program is for informational purposes only and should not be taken as financial advice.")
 st.text("We do not bear responsibility for any trading decisions made based on this program.")
 st.text("Users are advised to conduct their own research or consult with a qualified financial professional before making any investment decisions.")
+
