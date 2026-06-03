@@ -161,7 +161,7 @@ df['max'] = round((df.iloc[argrelextrema(df['Close'].values, np.greater_equal, o
 # ###  Calculate & print EMA10 Buy Points:
 cnt = len(df)-3
 EMA10buyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1：'Close' continuously increase 3 days
     if (df.iloc[cnt]['Close'] < df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] < df.iloc[cnt+2]['Close']):
         # Rule 2：EMA10 continuously increase 3 days
@@ -173,7 +173,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print EMA10 Sell Points:
 cnt = len(df)-3
 EMA10sellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1：'Close' continuously decrease 3 days
     if (df.iloc[cnt]['Close'] > df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] > df.iloc[cnt+2]['Close']):
         # Rule 2：EMA10 continuously decrease 3 days
@@ -186,7 +186,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print EMA50 Buy Points:
 cnt = len(df)-3
 EMA50buyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1：'Close' continuously increase 3 days
     if (df.iloc[cnt]['Close'] < df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] < df.iloc[cnt+2]['Close']):
         # Rule 2：EMA50 continuously increase 3 days
@@ -198,7 +198,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print EMA50 Sell Points:
 cnt = len(df)-3
 EMA50sellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1，'Close' continuously decrease 3 days
     if (df.iloc[cnt]['Close'] > df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] > df.iloc[cnt+2]['Close']):
         # Rule 2，EMA50 continuously decrease 3 days
@@ -211,7 +211,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print EMA100 Buy Points:
 cnt = len(df)-3
 EMA100buyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1：'Close' continuously increase 3 days
     if (df.iloc[cnt]['Close'] < df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] < df.iloc[cnt+2]['Close']):
         # Rule 2：EMA100 continuously increase 3 days
@@ -223,7 +223,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print EMA100 Sell Points:
 cnt = len(df)-3
 EMA100sellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     # Rule 1，'Close' continuously decrease 3 days
     if (df.iloc[cnt]['Close'] > df.iloc[cnt+1]['Close']) & (df.iloc[cnt+1]['Close'] > df.iloc[cnt+2]['Close']):
         # Rule 2，EMA100 continuously decrease 3 days
@@ -236,7 +236,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print BBANDS Buy Points:
 cnt = len(df)-1
 BBbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         if (df.iloc[cnt-1]['Close'] > df.iloc[cnt]['LowerBand']) & (df.iloc[cnt]['Close'] < df.iloc[cnt]['LowerBand']):
             BBbuyDate = BBbuyDate + df.iloc[cnt]['Date'] + ', '
@@ -244,7 +244,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print BBANDS Sell Points:
 cnt = len(df)-1
 BBsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         if (df.iloc[cnt-1]['Close'] < df.iloc[cnt-1]['UpperBand']) & (df.iloc[cnt]['Close'] > df.iloc[cnt]['UpperBand']):
             BBsellDate = BBsellDate + df.iloc[cnt]['Date'] + ', '
@@ -253,7 +253,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print MACD Buy Points:
 cnt = len(df)-1
 MACDbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         # Rule 1：Current day DIF > DEA
         if (df.iloc[cnt]['DIF'] > df.iloc[cnt]['DEA']) & (df.iloc[cnt-1]['DIF'] < df.iloc[cnt-1]['DEA']):
@@ -264,7 +264,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print MACD Sell Points:
 cnt = len(df)-1
 MACDsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         # Rule 1：Current day DIF< DEA
         if (df.iloc[cnt]['DIF'] < df.iloc[cnt]['DEA']) & (df.iloc[cnt-1]['DIF'] > df.iloc[cnt-1]['DEA']):
@@ -276,7 +276,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print DMI Buy Points:
 cnt = len(df)-1
 DMIbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         if (df.iloc[cnt-1]['ADX'] < 25) & (df.iloc[cnt]['ADX'] > 25) & (df.iloc[cnt]['Plus_di'] > df.iloc[cnt]['Minus_di']):
             DMIbuyDate = DMIbuyDate + df.iloc[cnt]['Date'] + ', '
@@ -284,7 +284,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print DMI Sell Points:
 cnt = len(df)-1
 DMIsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 30:
         if (df.iloc[cnt-1]['ADX'] < 25) & (df.iloc[cnt]['ADX'] > 25) & (df.iloc[cnt]['Plus_di'] < df.iloc[cnt]['Minus_di']):
             DMIsellDate = DMIsellDate + df.iloc[cnt]['Date'] + ', '
@@ -293,7 +293,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print BIAS Buy Points:
 cnt = len(df)-1
 BIASbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：
         if df.iloc[cnt]['BIAS12'] <= -7:
@@ -305,7 +305,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print BIAS Sell Points:
 cnt = len(df)-1
 BIASsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：
         if df.iloc[cnt]['BIAS12'] >= 7:
@@ -319,7 +319,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print KDJ Buy Points:
 cnt = len(df)-1
 KDJbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：Last day J > 10, cuurent day < 10
         if (df.iloc[cnt]['J'] < 10) & (df.iloc[cnt - 1]['J'] > 10):
@@ -336,7 +336,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print KDJ Sell Points:
 cnt = len(df)-1
 KDJsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：Last day J < 100, current day > 100
         if (df.iloc[cnt]['J'] > 100) & (df.iloc[cnt - 1]['J'] < 100):
@@ -353,7 +353,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print RSI Buy Points:
 cnt = len(df)-1
 RSIbuyDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：Current Day RSI6 < 20
         if df.iloc[cnt]['RSI6'] < 20:
@@ -367,7 +367,7 @@ while cnt > len(df)-signal_days:
 # ###  Calculate & print RSI Sell Points:
 cnt = len(df)-1
 RSIsellDate = ''
-while cnt > len(df)-signal_days:
+for cnt in range(len(df) - signal_days - 2, len(df) - 2):
     if cnt >= 3:
         # Rule 1：Current day RSI6 > 80
         if df.iloc[cnt]['RSI6'] < 80:
